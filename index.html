@@ -2,12 +2,26 @@
 <html>
 <head>
   <title>Seating System</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to the Seating System</h1>
-  <button onclick="loadStudents()">Load Students</button>
-  <ul id="studentList"></ul>
+  <button id="loadButton">Load Students</button>
+  <div id="studentTableContainer"></div>
 
   <script src="script.js"></script>
 </body>

@@ -1,21 +1,41 @@
-function loadStudents() {
-  // Call your backend API hosted on Render
-  fetch("https://seating-system-lm0y.onrender.com/plan/1")
-    .then(response => response.json())   // convert backend response to JSON
+document.getElementById("loadButton").addEventListener("click", function () {
+  fetch("https://seating-system-lm0y.onrender.com/students")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
     .then(data => {
-      const studentList = document.getElementById("studentList");
-      studentList.innerHTML = ""; // clear old list
+      const container = document.getElementById("studentTableContainer");
+      container.innerHTML = "";
 
-      // Loop through the data and add each student to the list
+      const table = document.createElement("table");
+      const header = document.createElement("tr");
+      header.innerHTML = `
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Course</th>
+        <th>Semester</th>
+      `;
+      table.appendChild(header);
+
       data.forEach(student => {
-        const li = document.createElement("li");
-        li.textContent = JSON.stringify(student); // show student info
-        studentList.appendChild(li);
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${student.name}</td>
+          <td>${student.rollNo}</td>
+          <td>${student.course}</td>
+          <td>${student.semester}</td>
+        `;
+        table.appendChild(row);
       });
+
+      container.appendChild(table);
     })
     .catch(error => {
-      console.error("Error fetching students:", error);
-      document.getElementById("studentList").innerHTML =
-        "<li>Failed to load students.</li>";
+      const container = document.getElementById("studentTableContainer");
+      container.innerHTML = "<p style='color:red;'>Failed to load students.</p>";
+      console.error("Fetch error:", error);
     });
-}
+});
