@@ -37,7 +37,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
         const seatingEntries = [...plan1, ...plan2].filter(p => p.studentId === student.id);
 
         let html = `
-          <table border="1">
+          <table>
             <tr><th>Name</th><td>${student.name}</td></tr>
             <tr><th>Roll No</th><td>${student.rollNo}</td></tr>
             <tr><th>Course</th><td>${student.course}</td></tr>

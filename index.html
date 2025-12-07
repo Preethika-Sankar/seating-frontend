@@ -3,23 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>Seating System</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 24px; }
-    h1 { margin-bottom: 8px; }
-    button { margin: 8px 0; padding: 8px 12px; }
-    input { padding: 6px 8px; margin-right: 8px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f4f4f4; }
-    .section { margin-top: 24px; }
-    .error { color: red; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Welcome to the Seating System</h1>
 
   <div class="section">
-    <button id="loadButton">Load Students</button>
+    <button id="loadButton">View All Students</button>
     <div id="studentTableContainer"></div>
   </div>
 
@@ -32,7 +22,7 @@
 
   <div class="section">
     <h2>Seating Plan View</h2>
-    <label for="examId">Exam ID:</label>
+    <label for="examId">ID:</label>
     <input type="number" id="examId" value="1" />
     <button id="planButton">View Seating Plan</button>
     <div id="planContainer"></div>
